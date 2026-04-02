@@ -1,6 +1,3 @@
-// API key: AIzaSyBgJmDqruvO_XLpje4ZcYMxg9biBnnTSiA
-// url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyBgJmDqruvO_XLpje4ZcYMxg9biBnnTSiA"
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const chatForm = document.getElementById("chatForm");
