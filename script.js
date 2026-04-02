@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Generate Request function
 async function generateRequest(prompt){
-  const response = await fetch (`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyBgJmDqruvO_XLpje4ZcYMxg9biBnnTSiA`, {
+  const response = await fetch (`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyB7E546ouM5KW2InVnnYMlTayQ2QDjch_w`, {
         method:"POST",
         headers: {
             "Content-Type": "application/json",
