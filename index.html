@@ -3,40 +3,160 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gemini AI Chat</title>
+    <title>Gemini AI Chat - Windows 2000</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>💬 Gemini AI Chat</h1>
-        <p class="subtitle">Chat with Google's advanced AI model</p>
-      </header>
 
-      <div class="chat-container">
-        <div class="chat-messages" id="chatMessages">
-          <div class="message">
-            <div class="avatar">AI</div>
-            <div class="message-content">
-              Hello! I'm Gemini AI. How can I help you today?
-            </div>
+    <!-- Desktop background -->
+    <div class="desktop">
+
+      <!-- Floating desktop icons -->
+      <div class="desktop-icon" style="top:20px;left:20px;">
+        <div class="icon-img">🖥️</div>
+        <span>My Computer</span>
+      </div>
+      <div class="desktop-icon" style="top:100px;left:20px;">
+        <div class="icon-img">🗑️</div>
+        <span>Recycle Bin</span>
+      </div>
+      <div class="desktop-icon" style="top:180px;left:20px;">
+        <div class="icon-img">📁</div>
+        <span>My Documents</span>
+      </div>
+
+      <!-- Window: Gemini AI Chat -->
+      <div class="win2k-window" id="chatWindow">
+
+        <!-- Title Bar -->
+        <div class="win2k-titlebar" id="titleBar">
+          <div class="titlebar-left">
+            <span class="titlebar-icon">💬</span>
+            <span class="titlebar-title">Gemini AI Chat</span>
+          </div>
+          <div class="titlebar-buttons">
+            <button class="win2k-btn-title" title="Minimize">&#x2014;</button>
+            <button class="win2k-btn-title" title="Maximize">&#x25A1;</button>
+            <button class="win2k-btn-title close" title="Close">&#x2715;</button>
           </div>
         </div>
 
-        <div class="input-container">
-          <form class="input-form" id="chatForm">
-            <textarea
-              id="userInput"
-              placeholder="Type your message here..."
-              rows="1"
-              required
-            ></textarea>
-            <button type="submit" id="sendButton">Send</button>
-          </form>
+        <!-- Menu Bar -->
+        <div class="win2k-menubar">
+          <span class="menu-item" tabindex="0"><u>F</u>ile</span>
+          <span class="menu-item" tabindex="0"><u>E</u>dit</span>
+          <span class="menu-item" tabindex="0"><u>V</u>iew</span>
+          <span class="menu-item" tabindex="0"><u>H</u>elp</span>
         </div>
+
+        <!-- Toolbar -->
+        <div class="win2k-toolbar">
+          <button class="toolbar-btn" title="New Chat">🗒️ New</button>
+          <div class="toolbar-sep"></div>
+          <button class="toolbar-btn" title="Clear">🧹 Clear</button>
+          <div class="toolbar-sep"></div>
+          <button class="toolbar-btn" title="Save">💾 Save</button>
+          <div class="toolbar-sep"></div>
+          <span class="toolbar-label">Model: <strong>Gemini 2.5 Flash</strong></span>
+        </div>
+
+        <!-- Window Body -->
+        <div class="win2k-body">
+
+          <!-- Left Panel -->
+          <div class="win2k-panel-left">
+            <div class="panel-header">Sessions</div>
+            <div class="session-list">
+              <div class="session-item active">📄 Chat Session 1</div>
+              <div class="session-item">📄 Chat Session 2</div>
+              <div class="session-item">📄 Chat Session 3</div>
+            </div>
+            <div class="panel-info">
+              <div class="info-box">
+                <strong>AI Model</strong><br />
+                Gemini 2.5 Flash<br /><br />
+                <strong>Status</strong><br />
+                <span class="status-dot online"></span> Online
+              </div>
+            </div>
+          </div>
+
+          <!-- Vertical Splitter -->
+          <div class="win2k-splitter"></div>
+
+          <!-- Right Panel: Chat -->
+          <div class="win2k-chat-area">
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot-message">
+                <div class="avatar bot-avatar">AI</div>
+                <div class="message-content">
+                  Hello! I&apos;m Gemini AI. How can I help you today?
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Bar above input -->
+            <div class="chat-status-bar">
+              <span>Type a message and press Enter or click Send</span>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+              <form class="input-form" id="chatForm">
+                <textarea
+                  id="userInput"
+                  placeholder="Type your message here..."
+                  rows="1"
+                  required
+                ></textarea>
+                <button type="submit" id="sendButton" class="win2k-send-btn">
+                  Send ▶
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Window Status Bar -->
+        <div class="win2k-statusbar">
+          <div class="statusbar-pane">Ready</div>
+          <div class="statusbar-pane">Gemini AI Chat v1.0</div>
+          <div class="statusbar-pane" id="statusClock">12:00 PM</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="win2k-taskbar">
+      <button class="start-btn">
+        <span class="start-logo">🪟</span> <strong>Start</strong>
+      </button>
+      <div class="taskbar-sep"></div>
+      <div class="taskbar-tasks">
+        <div class="taskbar-task active">💬 Gemini AI Chat</div>
+      </div>
+      <div class="taskbar-tray">
+        <span class="tray-icon" title="Network">🌐</span>
+        <span class="tray-icon" title="Volume">🔊</span>
+        <span class="tray-clock" id="taskbarClock">12:00 PM</span>
       </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+      // Update clocks
+      function updateClock() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const clocks = document.querySelectorAll('#taskbarClock, #statusClock');
+        clocks.forEach(el => el.textContent = timeStr);
+      }
+      updateClock();
+      setInterval(updateClock, 10000);
+    </script>
   </body>
 </html>
